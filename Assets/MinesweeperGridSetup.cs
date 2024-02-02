@@ -13,7 +13,7 @@ using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 
-public class Minesweeper : MonoBehaviour
+public class MinesweeperGridSetup : MonoBehaviour
 {
     private const int gridSize = 5;
     private const int numOfMines = 5;
@@ -25,6 +25,7 @@ public class Minesweeper : MonoBehaviour
     {
         gridUIContainer.GetComponent<GridLayoutGroup>().constraintCount = gridSize;
         GenerateGrid();
+        WinChecker.instance.SetNonMineCellAmount((gridSize*gridSize)-numOfMines);
     }
 
     void GenerateGrid()

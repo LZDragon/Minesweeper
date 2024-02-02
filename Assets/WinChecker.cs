@@ -34,5 +34,10 @@ public class WinChecker : MonoBehaviour
             Debug.Log("Winner");
         }
     }
+
+    public void SetNonMineCellAmount(int numberNonMineCells)
+    {
+        this.numberNonMineCells = numberNonMineCells;
+    }
     
 }
