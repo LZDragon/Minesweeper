@@ -18,35 +18,44 @@ public class GridCell : MonoBehaviour
     private bool isMine;
     private int nearbyMines;
     private Button gridButton;
-    private string buttonText;
+    private Text buttonText;
 
     private void Awake()
     {
         nearbyMines = -1;
         isMine = false;
         gridButton = GetComponentInParent<Button>();
-        buttonText = gridButton.GetComponentInChildren<Text>().text;
+        buttonText = gridButton.GetComponentInChildren<Text>();
+    }
+
+    public void SetIsMine(bool isMine)
+    {
+        this.isMine = isMine;
     }
     
-    public bool GetIsMine()
+
+    public void SetNearbyMines(int nearbyMines)
     {
-        return isMine;
+        this.nearbyMines = nearbyMines;
     }
 
-    public int GetNearbyMines()
+    void SetButtonText()
     {
-        return nearbyMines;
+        buttonText.text = nearbyMines.ToString();
     }
 
-    public void SetNearbyMines(int _nearbyMines)
+    public void CheckCell()
     {
-        nearbyMines = _nearbyMines;
-    }
+        if (isMine)
+        {
+            Debug.Log("Boom");
+        }
+        else
+        {
+            SetButtonText();
+        }
 
-    void setButtontext()
-    {
-        buttonText = nearbyMines.ToString();
+        gridButton.interactable = false;
     }
-    
     
 }

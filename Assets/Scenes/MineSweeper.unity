@@ -528,7 +528,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a4125f96acf4834ebcd43aa0ea688fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  grid: {fileID: 1996612379}
+  gridUIContainer: {fileID: 1996612379}
   gridCellPrefab: {fileID: 2271494374340740025, guid: f7d7ad1456651964ab83951e343cf24a, type: 3}
 --- !u!1 &1417069522
 GameObject:
