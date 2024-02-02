@@ -23,6 +23,7 @@ public class Minesweeper : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        gridUIContainer.GetComponent<GridLayoutGroup>().constraintCount = gridSize;
         GenerateGrid();
     }
 
@@ -36,7 +37,7 @@ public class Minesweeper : MonoBehaviour
             {
                 currentCoordinate = new Vector2(row, column);
                 gridCells[row, column] =
-                    Instantiate(gridCellPrefab, new Vector3((row*50)+50, (column*50)+50), Quaternion.identity, gridUIContainer.transform);
+                    Instantiate(gridCellPrefab, new Vector3(row, column), Quaternion.identity, gridUIContainer.transform);
                 if (generatedMineCoordinates.Contains(currentCoordinate))
                 {
                     gridCells[row,column].GetComponent<GridCell>().SetIsMine(true);
@@ -56,7 +57,7 @@ public class Minesweeper : MonoBehaviour
         List<Vector2> mineCoordinates = new List<Vector2>();
         int mine = 0;
         Vector2 coordinate;
-        while (mine <= numOfMines)
+        while (mine < numOfMines)
         {
             coordinate = new Vector2(Random.Range(0, gridSize), Random.Range(0,gridSize));
             if (mineCoordinates.Contains(coordinate))
@@ -71,11 +72,6 @@ public class Minesweeper : MonoBehaviour
         return mineCoordinates;
     }
     
-
-    void CheckIfBomb()
-    {
-        
-    }
 
     int CountNearbyMines(Vector2 coordinates, List<Vector2> mineList)
     {
@@ -127,7 +123,7 @@ public class Minesweeper : MonoBehaviour
         {
             count++;
         }
-        Debug.Log($"[{coordinates.x},{coordinates.y}]: Has {count} mines around it");
+        //Debug.Log($"[{coordinates.x},{coordinates.y}]: Has {count} mines around it");
         return count;
     }
 

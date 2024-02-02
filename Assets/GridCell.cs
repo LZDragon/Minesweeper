@@ -11,6 +11,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.Mathematics;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class GridCell : MonoBehaviour
@@ -26,6 +27,7 @@ public class GridCell : MonoBehaviour
         isMine = false;
         gridButton = GetComponentInParent<Button>();
         buttonText = gridButton.GetComponentInChildren<Text>();
+        gridButton.onClick.AddListener(HandleButtonClick);
     }
 
     public void SetIsMine(bool isMine)
@@ -44,18 +46,21 @@ public class GridCell : MonoBehaviour
         buttonText.text = nearbyMines.ToString();
     }
 
-    public void CheckCell()
+    void HandleButtonClick()
     {
+
+        gridButton.interactable = false;
         if (isMine)
         {
             Debug.Log("Boom");
+            SceneManager.LoadScene("Scenes/GameOver");
         }
         else
         {
             SetButtonText();
+            WinChecker.instance.AddClicked();
         }
 
-        gridButton.interactable = false;
     }
     
 }

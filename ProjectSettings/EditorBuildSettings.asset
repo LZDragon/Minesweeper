@@ -8,4 +8,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MainMenu.unity
     guid: 73bf09e90b82f1446920d6402fe485fb
+  - enabled: 1
+    path: Assets/Scenes/MineSweeper.unity
+    guid: 7a56e5fbeb55c4744a6c3fb58b4c0add
+  - enabled: 1
+    path: Assets/Scenes/GameOver.unity
+    guid: 1b37ee585b64c9045a80ddcef528d624
   m_configObjects: {}
