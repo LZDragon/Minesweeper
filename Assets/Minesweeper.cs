@@ -9,17 +9,19 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 
 public class Minesweeper : MonoBehaviour
 {
-    [SerializeField] private GameObject grid;
-    private GridCell[,] gridCells = new GridCell[5, 5];
+    [SerializeField] private GameObject gridUIContainer;
+    [SerializeField] private GameObject gridCellPrefab;
+    private GameObject[,] gridCells = new GameObject[5, 5];
     // Start is called before the first frame update
     void Start()
     {
-        
+        GenerateGrid();
     }
 
     void GenerateGrid()
@@ -28,7 +30,8 @@ public class Minesweeper : MonoBehaviour
         {
             for (int column = 0; column < gridCells.GetLength(1); column++)
             {
-
+                gridCells[row, column] =
+                    Instantiate(gridCellPrefab, new Vector3((row*50)+50, (column*50)+50), Quaternion.identity, gridUIContainer.transform);
             }
         }
     }

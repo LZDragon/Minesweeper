@@ -15,15 +15,17 @@ using UnityEngine.UI;
 
 public class GridCell : MonoBehaviour
 {
-    [SerializeField] private Button gridCellPrefab;
     private bool isMine;
     private int nearbyMines;
     private Button gridButton;
+    private string buttonText;
 
     private void Awake()
     {
         nearbyMines = -1;
         isMine = false;
+        gridButton = GetComponentInParent<Button>();
+        buttonText = gridButton.GetComponentInChildren<Text>().text;
     }
     
     public bool GetIsMine()
@@ -39,6 +41,11 @@ public class GridCell : MonoBehaviour
     public void SetNearbyMines(int _nearbyMines)
     {
         nearbyMines = _nearbyMines;
+    }
+
+    void setButtontext()
+    {
+        buttonText = nearbyMines.ToString();
     }
     
     

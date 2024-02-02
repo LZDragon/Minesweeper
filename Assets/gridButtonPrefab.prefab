@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 293531571503379288}
   - component: {fileID: 4305424206484990181}
   - component: {fileID: 2327448704894402022}
+  - component: {fileID: 1961045879334175332}
   m_Layer: 5
   m_Name: gridButtonPrefab
   m_TagString: Untagged
@@ -99,9 +100,9 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 0.8155076, g: 0.8867924, b: 0.60569596, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_HighlightedColor: {r: 0.5294118, g: 0.41176474, b: 0.10980393, a: 1}
     m_PressedColor: {r: 0.4811321, g: 0.34102142, b: 0.0971342, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_SelectedColor: {r: 0.48235297, g: 0.34117648, b: 0.098039225, a: 1}
     m_DisabledColor: {r: 0.5283019, g: 0.41357598, b: 0.111641124, a: 1}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -120,7 +121,31 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 4305424206484990181}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2271494374340740025}
+        m_TargetAssemblyTypeName: 
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1961045879334175332
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2271494374340740025}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97094d4c7e1721a41b5ed3bd71639039, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5499950239202596405
 GameObject:
   m_ObjectHideFlags: 0
@@ -179,7 +204,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
