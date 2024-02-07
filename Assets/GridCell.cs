@@ -11,23 +11,26 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.Mathematics;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class GridCell : MonoBehaviour
+public class GridCell : MonoBehaviour, IPointerClickHandler
 {
     private bool isMine;
     private int nearbyMines;
     private Button gridButton;
     private Text buttonText;
+    private bool flag;
 
     private void Awake()
     {
         nearbyMines = -1;
         isMine = false;
+        flag = false;
         gridButton = GetComponentInParent<Button>();
         buttonText = gridButton.GetComponentInChildren<Text>();
-        gridButton.onClick.AddListener(HandleButtonClick);
+        //gridButton.onClick.AddListener(HandleButtonClick);
     }
 
     public void SetIsMine(bool isMine)
@@ -45,20 +48,38 @@ public class GridCell : MonoBehaviour
     {
         buttonText.text = nearbyMines.ToString();
     }
-
-    void HandleButtonClick()
+    
+    public void OnPointerClick(PointerEventData pointerEventData)
     {
-
-        gridButton.interactable = false;
-        if (isMine)
+        if (pointerEventData.button == PointerEventData.InputButton.Left)
         {
-            Debug.Log("Boom");
-            SceneManager.LoadScene("Scenes/GameOver");
+            gridButton.interactable = false;
+            gridButton.image.color = new Color(125, 92, 30);//brown
+            if (isMine)
+            {
+                Debug.Log("Boom");
+                SceneManager.LoadScene("Scenes/GameOver");
+            }
+            else
+            {
+                SetButtonText();
+                WinChecker.instance.AddClicked();
+            }
         }
         else
         {
-            SetButtonText();
-            WinChecker.instance.AddClicked();
+            if (flag)
+            {
+                gridButton.image.color = Color.white;
+                flag = false;
+            }
+            else
+            {
+                gridButton.image.color = Color.red;
+                flag = true;
+            }
+            Debug.Log("right-clicked button");
+            
         }
 
     }
