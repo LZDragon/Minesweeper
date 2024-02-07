@@ -928,8 +928,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -39.95}
-  m_SizeDelta: {x: 600, y: 30}
+  m_AnchoredPosition: {x: 0, y: -138.4}
+  m_SizeDelta: {x: 600, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &942480689
 MonoBehaviour:
@@ -953,7 +953,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 18
+    m_FontSize: 23
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 10
@@ -963,8 +963,10 @@ MonoBehaviour:
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
-    m_LineSpacing: 1
-  m_Text: 'Todo: add rules'
+    m_LineSpacing: 1.33
+  m_Text: The objective of the game is to clear all tiles that don't have a mine
+    on them. Clicking on a tile reveals how many mines are touching the tile including
+    diagonally. If you uncover a mine it is game over.
 --- !u!222 &942480690
 CanvasRenderer:
   m_ObjectHideFlags: 0
