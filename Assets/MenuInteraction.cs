@@ -7,7 +7,9 @@
 /////////////////////////////////////////////
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.SearchService;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class MenuInteraction : MonoBehaviour
@@ -31,7 +33,7 @@ public class MenuInteraction : MonoBehaviour
 
     void StartGame()
     {
-        
+        SceneManager.LoadScene(1);
     }
 
     void OpenHowTo()
