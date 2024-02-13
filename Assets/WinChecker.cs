@@ -1,7 +1,14 @@
-using System;
+//////////////////////////////////////////////
+//Assignment/Lab/Project: Minesweeper
+//Name: Eliza Majernik
+//Section: SGD.213.2172
+//Instructor: Brian Sowers
+//Date: 01/30/2024
+/////////////////////////////////////////////using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class WinChecker : MonoBehaviour
 {
@@ -32,6 +39,7 @@ public class WinChecker : MonoBehaviour
         if (numberClickedCells >= numberNonMineCells)
         {
             Debug.Log("Winner");
+            SceneManager.LoadScene(3);
         }
     }
 

@@ -28,6 +28,9 @@ public class MinesweeperGridSetup : MonoBehaviour
         WinChecker.instance.SetNonMineCellAmount((gridSize*gridSize)-numOfMines);
     }
 
+    /// <summary>
+    /// Method <c>GenerateGrid</c> Fills array <c>gridCells</c> with prefab button, <c>gridCellPrefab</c>, initialized with whether it is a mine and how many mine are around it.
+    /// </summary>
     void GenerateGrid()
     {
         List<Vector2> generatedMineCoordinates = GenerateMines();
@@ -73,7 +76,12 @@ public class MinesweeperGridSetup : MonoBehaviour
         return mineCoordinates;
     }
     
-
+    /// <summary>
+    /// Method <c>CountNearbyMines</c>Counts the number of mines around a location
+    /// </summary>
+    /// <param name="coordinates"><c>Vector2</c> position that serves as the origin to check around</param>
+    /// <param name="mineList"><c> List contains the mine positions</c></param>
+    /// <returns>The number of mines around the coordinates as an int</returns>
     int CountNearbyMines(Vector2 coordinates, List<Vector2> mineList)
     {
         int count = 0;

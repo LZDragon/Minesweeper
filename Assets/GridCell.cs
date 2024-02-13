@@ -43,7 +43,10 @@ public class GridCell : MonoBehaviour, IPointerClickHandler
     {
         this.nearbyMines = nearbyMines;
     }
-
+    
+/// <summary>
+/// Method <c>SetButtonText</c> Displays the amount of nearby mines on the button
+/// </summary>
     void SetButtonText()
     {
         buttonText.text = nearbyMines.ToString();
@@ -66,6 +69,7 @@ public class GridCell : MonoBehaviour, IPointerClickHandler
                 WinChecker.instance.AddClicked();
             }
         }
+        //Flag functionality
         else
         {
             if (flag)
